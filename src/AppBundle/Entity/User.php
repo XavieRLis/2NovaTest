@@ -22,6 +22,8 @@ class User implements UserInterface, \Serializable
      */
     private $username;
 
+    private $plainPassword;
+
     /**
      * @ORM\Column(type="string", length=64)
      */
@@ -61,6 +63,22 @@ class User implements UserInterface, \Serializable
     {
         $this->username = $username;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
     }
 
     /**
