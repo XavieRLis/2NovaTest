@@ -35,11 +35,6 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isActive = true;
-
-    /**
      * @return integer
      */
     public function getId()
@@ -114,24 +109,6 @@ class User implements UserInterface, \Serializable
     public function setEmail($email)
     {
         $this->email = $email;
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
-
-    /**
-     * @param mixed $isActive
-     * @return User
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
         return $this;
     }
 
