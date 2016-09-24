@@ -51,16 +51,18 @@ class SecurityController extends Controller
     public function loginAction()
     {
         $authenticationUtils = $this->get('security.authentication_utils');
-
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
+        if ($error !== null) {
+            $this->addFlash('danger', $error->getMessage());
+            return $this->redirectToRoute('homepage');
+        }
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render(':Security:login.html.twig', array(
             'last_username' => $lastUsername,
-            'error'         => $error,
         ));
     }
 }
