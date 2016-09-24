@@ -4,6 +4,7 @@
     <h2> Приветствую тебя анононим. Ты можешь войти или зарегистрироваться.</h2>
     <div class="row">
         <div class="col-md-6">
+            {{ render(controller('AppBundle:Security:login')) }}
         </div>
         <div class="col-md-6">
             {{ render(controller('AppBundle:Security:register')) }}
