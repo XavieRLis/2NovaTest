@@ -3,6 +3,20 @@
 {% block content %}
     <h2> Приветствую тебя анононим. Ты можешь войти или зарегистрироваться.</h2>
     <div class="row">
+        <div class="col-md-8">
+            {% block flash_messages %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }} alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            {{ message | raw }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
             {{ render(controller('AppBundle:Security:login')) }}
         </div>
