@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h2> Приветствую тебя {{ app.user.username|default('Аноним') }}. {% if not app.user %} Ты можешь войти или зарегистрироваться.{% endif %}</h2>
+    <h2> Приветствую тебя {{ app.user.username|default('Аноним') }}.
+        {% if not app.user %} Ты можешь войти или зарегистрироваться.{% endif %}
+        {% if app.user %}<a href="{{ path('logout') }}">Выйти</a> {% endif %}</h2>
     <div class="row">
         <div class="col-md-8">
             {% block flash_messages %}
